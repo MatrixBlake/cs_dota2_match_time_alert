@@ -15,6 +15,7 @@ TEAMS = {
     "Dota2": ["Xtreme_Gaming", "Team_Tidebound"],
     "CS2": ["Lynn_Vision_Gaming", "TYLOO", "The_MongolZ", "Team_Spirit"]
 } 
+GAME_TO_URL = {"Dota2":"dota2", "CS2": "counterstrike"}
 
 games = []
 dates = []
@@ -41,10 +42,7 @@ def fetch_match_time(game_category, url):
 def get_all_match_times():
     global games, dates
     for game_category, teams in TEAMS.items():
-        if game_category == 'Dota2':
-            game_url = "https://liquipedia.net/dota2/"
-        elif game_category == 'CS2':
-            game_url = "https://liquipedia.net/counterstrike/"
+        game_url = f"https://liquipedia.net/{GAME_TO_URL[game_category]}/"
         for team in teams:
             fetch_match_time(game_category, f"{game_url}{team}")
     sorted_games = [(game, date) for (date, game) in sorted(zip(dates, games), key = lambda x:x[0])]
