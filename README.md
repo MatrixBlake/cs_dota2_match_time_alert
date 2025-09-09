@@ -5,7 +5,7 @@
 1. fork这个repo
 2. 在gmail里create的一个自己的**App Passwords**（应用专用密码）
 3. 在你的repo的**Settings → Secrets → Actions** → 添加repo secreats： `EMAIL_PASSWORD = 你的邮箱应用专用密码`
-4. 在`fetch_and_mail.p`y把发件人和收件人都改成自己的email
+4. 在`fetch_and_mail.py`把发件人和收件人都改成自己的email
 5. 选择性更改你关心的项目和战队，项目名在后面的url里要注意改写，战队名要和liquidpedia的url一致
 
 **Note:**  
