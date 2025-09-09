@@ -70,5 +70,5 @@ def send_email(message):
         server.sendmail(SENDER, RECEIVER, msg.as_string())
 
 if __name__ == "__main__":
-    message = fetch_match_time()
+    message = get_all_match_times()
     send_email(message)
