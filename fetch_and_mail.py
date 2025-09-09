@@ -50,7 +50,7 @@ def get_all_match_times():
     sorted_games = [(game, date) for (date, game) in sorted(zip(dates, games), key = lambda x:x[0])]
     message = ""
     for game, date in sorted_games:
-        message += f"{game}: {date.strftime('%A, %Y-%m-%d %H:%M %Z')}\n"
+        message += f"{game}: {date.strftime('%A, %Y-%m-%d %H:%M %Z')}\n\n"
     return message
 
 def send_email(message):
