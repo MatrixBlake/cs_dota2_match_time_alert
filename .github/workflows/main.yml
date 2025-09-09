@@ -1,4 +1,4 @@
-name: Daily Match Fetch 2
+name: Daily Match Fetch
 
 on:
   schedule:
