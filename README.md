@@ -1,0 +1,2 @@
+# cs_dota2_match_time_alert
+每日自动发送最近几天关注战队的比赛时间
