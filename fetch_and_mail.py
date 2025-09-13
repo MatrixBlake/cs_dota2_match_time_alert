@@ -45,11 +45,23 @@ def get_all_match_times():
         game_url = f"https://liquipedia.net/{GAME_TO_URL[game_category]}/"
         for team in teams:
             fetch_match_time(game_category, f"{game_url}{team}")
-    sorted_games = [(game, date) for (date, game) in sorted(zip(dates, games), key = lambda x:x[0])]
+    
+    # Pair and sort by date
+    sorted_games = [(game, date) for (date, game) in sorted(zip(dates, games), key=lambda x: x[0])]
+    
+    # Get current time with same tzinfo as your dates
+    now = datetime.now(sorted_games[0][1].tzinfo) if sorted_games else datetime.now()
+    
+    # Filter only future matches
+    upcoming_games = [(game, date) for game, date in sorted_games if date > now]
+    
+    # Build message
     message = ""
-    for game, date in sorted_games:
+    for game, date in upcoming_games:
         message += f"{game}: {date.strftime('%A, %Y-%m-%d %H:%M %Z')}\n\n"
+    
     return message
+
 
 def send_email(message):
     msg = MIMEMultipart()
